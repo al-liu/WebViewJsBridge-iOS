@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Eh7-oj-1sR"/>
+                        <viewControllerLayoutGuide type="bottom" id="djI-jt-X4d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3wf-wJ-pGq">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBW-uG-8Sp">
+                                <rect key="frame" x="219" y="54" width="185" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="185" id="pz2-lB-SXG"/>
+                                </constraints>
+                                <state key="normal" title="See UIWebView Example">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="KgC-m4-IGx" kind="presentation" id="gWu-pU-5Dj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCK-78-xla">
+                                <rect key="frame" x="30" y="822" width="50" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="fa9-mi-3fp"/>
+                                </constraints>
+                                <state key="normal" title="Test1">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="test1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OOT-iH-DNd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ogf-Qu-SFV">
+                                <rect key="frame" x="150" y="822" width="50" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="SV9-zM-h7d"/>
+                                </constraints>
+                                <state key="normal" title="Test3">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="test3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jfw-kj-6ql"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibG-pa-iHW">
+                                <rect key="frame" x="210" y="822" width="50" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Djy-N4-cDE"/>
+                                </constraints>
+                                <state key="normal" title="Test4">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="test4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="clp-7q-v12"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WKWebView native call js:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6K-jk-rsm">
+                                <rect key="frame" x="30" y="793" width="200" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJs-6d-W4c">
+                                <rect key="frame" x="90" y="822" width="50" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="zof-D6-HsR"/>
+                                </constraints>
+                                <state key="normal" title="Test2">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="test2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OMP-tJ-kSG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ogf-Qu-SFV" firstAttribute="bottom" secondItem="PJs-6d-W4c" secondAttribute="bottom" id="2eu-8C-83s"/>
+                            <constraint firstItem="djI-jt-X4d" firstAttribute="top" secondItem="bCK-78-xla" secondAttribute="bottom" constant="10" id="3fV-yK-LU3"/>
+                            <constraint firstAttribute="trailing" secondItem="QBW-uG-8Sp" secondAttribute="trailing" constant="10" id="AV8-ap-hjR"/>
+                            <constraint firstItem="3wf-wJ-pGq" firstAttribute="top" secondItem="Eh7-oj-1sR" secondAttribute="bottom" id="Fe3-XC-Vpk"/>
+                            <constraint firstItem="djI-jt-X4d" firstAttribute="top" secondItem="3wf-wJ-pGq" secondAttribute="bottom" id="Fe6-dw-YQp"/>
+                            <constraint firstItem="ibG-pa-iHW" firstAttribute="bottom" secondItem="Ogf-Qu-SFV" secondAttribute="bottom" id="QNH-V3-Uau"/>
+                            <constraint firstItem="bCK-78-xla" firstAttribute="top" secondItem="O6K-jk-rsm" secondAttribute="bottom" constant="8" id="SRQ-1G-r1p"/>
+                            <constraint firstItem="O6K-jk-rsm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="SeQ-cO-V16"/>
+                            <constraint firstItem="PJs-6d-W4c" firstAttribute="bottom" secondItem="bCK-78-xla" secondAttribute="bottom" id="WBV-dj-snB"/>
+                            <constraint firstItem="bCK-78-xla" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="alS-oc-0Xk"/>
+                            <constraint firstAttribute="trailing" secondItem="3wf-wJ-pGq" secondAttribute="trailing" id="bEJ-gb-91w"/>
+                            <constraint firstItem="Ogf-Qu-SFV" firstAttribute="leading" secondItem="PJs-6d-W4c" secondAttribute="trailing" constant="10" id="bmp-Z6-PYa"/>
+                            <constraint firstItem="ibG-pa-iHW" firstAttribute="leading" secondItem="Ogf-Qu-SFV" secondAttribute="trailing" constant="10" id="gYW-jn-Zap"/>
+                            <constraint firstItem="PJs-6d-W4c" firstAttribute="leading" secondItem="bCK-78-xla" secondAttribute="trailing" constant="10" id="obi-bJ-kdB"/>
+                            <constraint firstItem="3wf-wJ-pGq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rwv-yD-ZK2"/>
+                            <constraint firstItem="QBW-uG-8Sp" firstAttribute="top" secondItem="Eh7-oj-1sR" secondAttribute="bottom" constant="10" id="weg-uf-eE1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="wkWebView" destination="3wf-wJ-pGq" id="SYU-6x-gN5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
+        </scene>
+        <!--Demo View Controller-->
+        <scene sceneID="E3X-7U-cRr">
+            <objects>
+                <viewController id="KgC-m4-IGx" customClass="DemoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EXW-tN-xbE"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Hg-cK-6rn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bQB-Ep-WWX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="paP-cS-iWV">
+                                <rect key="frame" x="20" y="44" width="374" height="818"/>
+                                <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79H-ZU-gqg">
+                                <rect key="frame" x="30" y="822" width="50" height="30"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="KMq-P9-MN5"/>
+                                </constraints>
+                                <state key="normal" title="Test1">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="test1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VNG-nd-sOm"/>
+                                    <action selector="test1:" destination="KgC-m4-IGx" eventType="touchUpInside" id="gUA-g5-Qcu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Vt-Fp-RRl">
+                                <rect key="frame" x="90" y="822" width="50" height="30"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="101-UM-IF5"/>
+                                </constraints>
+                                <state key="normal" title="Test2">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="test2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OPd-jz-fno"/>
+                                    <action selector="test2:" destination="KgC-m4-IGx" eventType="touchUpInside" id="Xa8-ZT-MAg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eC0-gw-OXl">
+                                <rect key="frame" x="150" y="822" width="50" height="30"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="8iS-By-CH7"/>
+                                </constraints>
+                                <state key="normal" title="Test3">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="test3:" destination="KgC-m4-IGx" eventType="touchUpInside" id="ild-6D-N7y"/>
+                                    <action selector="test3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="omw-g8-VLh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebX-sT-ga1">
+                                <rect key="frame" x="210" y="822" width="50" height="30"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="dak-hY-xGw"/>
+                                </constraints>
+                                <state key="normal" title="Test4">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="test4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dyy-4F-mbQ"/>
+                                    <action selector="test4:" destination="KgC-m4-IGx" eventType="touchUpInside" id="hik-5g-wA4"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UIWebView native call js:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5k-Ca-fs7">
+                                <rect key="frame" x="30" y="795" width="190" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cge-KO-t3m">
+                                <rect key="frame" x="176" y="54" width="228" height="30"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="228" id="PIG-L9-5fS"/>
+                                </constraints>
+                                <state key="normal" title="Back to WKWebView Example">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToWKWebView:" destination="KgC-m4-IGx" eventType="touchUpInside" id="WPW-yn-art"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eC0-gw-OXl" firstAttribute="leading" secondItem="3Vt-Fp-RRl" secondAttribute="trailing" constant="10" id="4x8-oD-AZp"/>
+                            <constraint firstItem="paP-cS-iWV" firstAttribute="leading" secondItem="bQB-Ep-WWX" secondAttribute="leadingMargin" id="5t5-nk-baw"/>
+                            <constraint firstItem="8Hg-cK-6rn" firstAttribute="top" secondItem="79H-ZU-gqg" secondAttribute="bottom" constant="10" id="6f4-AN-j7i"/>
+                            <constraint firstItem="G5k-Ca-fs7" firstAttribute="leading" secondItem="79H-ZU-gqg" secondAttribute="leading" id="AJJ-QB-dBa"/>
+                            <constraint firstItem="ebX-sT-ga1" firstAttribute="leading" secondItem="eC0-gw-OXl" secondAttribute="trailing" constant="10" id="BbO-gF-QcW"/>
+                            <constraint firstItem="cge-KO-t3m" firstAttribute="leading" secondItem="bQB-Ep-WWX" secondAttribute="leading" constant="176" id="CK1-AE-txt"/>
+                            <constraint firstItem="ebX-sT-ga1" firstAttribute="bottom" secondItem="eC0-gw-OXl" secondAttribute="bottom" id="DIc-MT-dgj"/>
+                            <constraint firstItem="eC0-gw-OXl" firstAttribute="bottom" secondItem="3Vt-Fp-RRl" secondAttribute="bottom" id="LQP-7p-9c2"/>
+                            <constraint firstItem="cge-KO-t3m" firstAttribute="top" secondItem="EXW-tN-xbE" secondAttribute="bottom" constant="10" id="NL6-0W-dCT"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ebX-sT-ga1" secondAttribute="trailing" constant="20" symbolic="YES" id="T4w-kO-eFM"/>
+                            <constraint firstItem="3Vt-Fp-RRl" firstAttribute="leading" secondItem="79H-ZU-gqg" secondAttribute="trailing" constant="10" id="Vwz-Vl-wpi"/>
+                            <constraint firstItem="79H-ZU-gqg" firstAttribute="top" secondItem="G5k-Ca-fs7" secondAttribute="bottom" constant="6" id="dTs-U2-DI7"/>
+                            <constraint firstItem="paP-cS-iWV" firstAttribute="top" secondItem="EXW-tN-xbE" secondAttribute="bottom" id="e6s-q4-SRR"/>
+                            <constraint firstItem="8Hg-cK-6rn" firstAttribute="top" secondItem="paP-cS-iWV" secondAttribute="bottom" id="f3Y-Yh-tc5"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="G5k-Ca-fs7" secondAttribute="trailing" constant="20" symbolic="YES" id="kzL-8d-GHP"/>
+                            <constraint firstItem="cge-KO-t3m" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bQB-Ep-WWX" secondAttribute="trailingMargin" id="la4-Ip-tLC"/>
+                            <constraint firstItem="79H-ZU-gqg" firstAttribute="leading" secondItem="bQB-Ep-WWX" secondAttribute="leadingMargin" constant="10" id="pFc-eh-s3v"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="paP-cS-iWV" secondAttribute="trailing" id="uWS-Vx-S3U"/>
+                            <constraint firstItem="3Vt-Fp-RRl" firstAttribute="bottom" secondItem="79H-ZU-gqg" secondAttribute="bottom" id="vx0-eg-nyd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="paP-cS-iWV" id="Eej-qj-UgE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x4K-Er-iEq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1197.1014492753625" y="123.88392857142857"/>
+        </scene>
+    </scenes>
+</document>

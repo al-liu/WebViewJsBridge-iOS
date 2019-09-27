@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <title>HCJsBridge Test</title>
+        <style type="text/css">
+            button { margin:0 3px 10px; font-size:12px; }
+            .logLine { border-bottom:1px solid #ccc; padding:4px 2px; font-family:courier; font-size:11px; }
+        </style>
+        <script src="./hcJsBridge.js"> </script>
+    </head>
+    <body>
+        <h2>HCJsBridge Demo</h2>
+        <button type="button" onclick="test1()">test1</button>
+        <button type="button" onclick="test2()">test2</button>
+        <button type="button" onclick="test3()">test3</button>
+        <button type="button" onclick="test4()">test4</button>
+        <div id='log'></div>
+        <script>
+            var lineNum = 1
+            function log(message, data) {
+                var content = "";
+                if (data == null) {
+                } else if (typeof data === 'object') {
+                    content = JSON.stringify(data)
+                } else {
+                    content = data;
+                }
+                var log = document.getElementById('log')
+                var el = document.createElement('div')
+                el.className = 'logLine'
+                if (content === "") {
+                    el.innerHTML = lineNum++ + '. ' + message
+                } else {
+                    el.innerHTML = lineNum++ + '. ' + message + ':<br/>' + JSON.stringify(data)
+                }
+                if (log.children.length) { log.insertBefore(el, log.children[0]) }
+                else { log.appendChild(el) }
+            }
+        
+            function test1() {
+                log("Js calling native, handlename is ui.test1")
+                var data = "test1 data";
+                hcJsBridge.callHandler('ui.test1', data, function (responseData) {
+                    log('Js receives the response data returned by native, response data is', responseData);
+                })
+            }
+        
+            function test2() {
+                log("Js calling native, handlename is ui.test2, no callback.")
+                var data = {hello: "world"};
+                hcJsBridge.callHandler('ui.test2', data)
+            }
+        
+            function test3() {
+                log("Js calling native, handlename is ui.test3, no data, no callback.")
+                hcJsBridge.callHandler('ui.test3')
+            }
+
+            function test4() {
+                log("Js calling native, handlename is ui.test4, no data.")
+                hcJsBridge.callHandler('ui.test4', function (responseData) {
+                    log('Js receives the response data returned by native, response data is', responseData);
+                })
+            }
+
+            log("beginning register handler (test1, test2, test3)");
+            hcJsBridge.registerHandler("test1", function(data, callback) {
+                log('Native call js ,handlename is test1, data is:', data);
+                callback('callback native,handlename is test1');
+            })
+
+            hcJsBridge.registerHandler("test2", function(data, callback) {
+                log('Native call js ,handlename is test2, data is:', data);
+                callback('callback native,handlename is test2');
+            })
+
+            hcJsBridge.registerHandler("test3", function(data, callback) {
+                log('Native call js ,handlename is test3, data is:', data);
+                callback('callback native,handlename is test3');
+            })
+
+            log("beginning call native,handlename is ui.test3");
+            hcJsBridge.callHandler('ui.test3');
+            
+        </script>
+    </body>
+</html>
+
