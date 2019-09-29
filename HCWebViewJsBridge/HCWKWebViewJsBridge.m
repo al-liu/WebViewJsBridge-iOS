@@ -240,6 +240,14 @@ static NSString * const kJsBridgeApiSpacenameDefault = @"default";
         HCJBLog(@"Method(sendMessage) call failed, an error occurred when the object(message) was converted to json:%@", [error description]);
         return;
     }
+    messageJson = [messageJson stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
+    messageJson = [messageJson stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+    messageJson = [messageJson stringByReplacingOccurrencesOfString:@"\'" withString:@"\\\'"];
+    messageJson = [messageJson stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"];
+    messageJson = [messageJson stringByReplacingOccurrencesOfString:@"\r" withString:@"\\r"];
+    messageJson = [messageJson stringByReplacingOccurrencesOfString:@"\f" withString:@"\\f"];
+    messageJson = [messageJson stringByReplacingOccurrencesOfString:@"\u2028" withString:@"\\u2028"];
+    messageJson = [messageJson stringByReplacingOccurrencesOfString:@"\u2029" withString:@"\\u2029"];
     NSString* javascriptCommand = [NSString stringWithFormat:kWKResponseCallbackJsScript, messageJson];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self->_webView evaluateJavaScript:javascriptCommand completionHandler:^(id _Nullable result, NSError * _Nullable error) {
