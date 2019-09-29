@@ -225,22 +225,24 @@ static NSString * const kJsBridgeApiSpacenameDefault = @"default";
     }
     HCJsApiName *apiName = [HCWebViewJsBridgeUtil resolveMessageName:name];
     if (apiName) {
-        HCJsBridgeHandleApiResultType result = [HCWebViewJsBridgeUtil handleApiWithName:apiName
-                                                                                   data:data
-                                                                               callback:responseCallback
-                                                                                apiDict:_apiObjectDictionary
-                                                                        cacheDict:_cacheApiMethodDictionary];
-        if (result == HCJsBridgeHandleApiResultTypeNotFoundTarget) {
-            HCJBLog(@"Api Method call failed, because api object not found, please check the message name(%@).", name);
-        } else if (result == HCJsBridgeHandleApiResultTypeNotFoundMethod) {
-            HCJBLog(@"Api Method call failed, because method not found, please check the message name(%@).", name);
-        } else if (result == HCJsBridgeHandleApiResultTypeErrorArgument) {
-            HCJBLog(@"Api Method call failed, because pass error argument, please check the data or callback.");
-        } else if (result == HCJsBridgeHandleApiResultTypeSuccess){
-            if (_isDebug) {
-                HCJBDebugLog(@"Js call api of native(%@) succeeded", name);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            HCJsBridgeHandleApiResultType result = [HCWebViewJsBridgeUtil handleApiWithName:apiName
+                                                                                       data:data
+                                                                                   callback:responseCallback
+                                                                                    apiDict:self->_apiObjectDictionary
+                                                                                  cacheDict:self->_cacheApiMethodDictionary];
+            if (result == HCJsBridgeHandleApiResultTypeNotFoundTarget) {
+                HCJBLog(@"Api Method call failed, because api object not found, please check the message name(%@).", name);
+            } else if (result == HCJsBridgeHandleApiResultTypeNotFoundMethod) {
+                HCJBLog(@"Api Method call failed, because method not found, please check the message name(%@).", name);
+            } else if (result == HCJsBridgeHandleApiResultTypeErrorArgument) {
+                HCJBLog(@"Api Method call failed, because pass error argument, please check the data or callback.");
+            } else if (result == HCJsBridgeHandleApiResultTypeSuccess){
+                if (self->_isDebug) {
+                    HCJBDebugLog(@"Js call api of native(%@) succeeded", name);
+                }
             }
-        }
+        });
     } else {
         HCJBLog(@"Error parsing namespace, please check the message name(%@).", name);
     }
