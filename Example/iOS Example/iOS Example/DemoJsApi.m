@@ -12,21 +12,21 @@
 @implementation DemoJsApi
 
 - (void)test1:(NSString *)data callback:(HCJBResponseCallback)callback {
-    NSLog(@"调用到 native api test1, data is:%@", data);
-    callback(@"来自 native api test1 的 callback.");
+    NSLog(@"Js call native api test1, data is:%@", data);
+    callback(@"native api test1’callback.");
 }
 
 - (void)test2:(NSDictionary *)data {
-    NSLog(@"调用到 native api:test2, data is:%@", data);
+    NSLog(@"Js native api:test2, data is:%@", data);
 }
 
 - (void)test3 {
-    NSLog(@"调用到 native api:test3");
+    NSLog(@"Js native api:test3");
 }
 
 - (void)test4:(HCJBResponseCallback)callback {
-    NSLog(@"调用到 native api:test4");
-    callback(@"来自 native api test4 的 callback.");
+    NSLog(@"Js native api:test4");
+    callback(@"native api test4'callback.");
 }
 
 @end
