@@ -77,25 +77,61 @@ static NSString * const kJsBridgeNativeCallbackFormat = @"native_callback_%@";
         cacheMethods = [methodNameArray copy];
         [cacheDict setObject:cacheMethods forKey:apiName.spacename];
     }
-    for (HCJsApiMethod *apiMethod in cacheMethods) {
-        if ([apiMethod.name hasPrefix:apiName.name]) {
-            if (apiMethod.numberOfParameter == 0) {
-                ((void(*)(id,SEL))objc_msgSend)(target, apiMethod.selector);
-            } else if (apiMethod.numberOfParameter == 1) {
-                if ([HCWebViewJsBridgeUtil nonNull:data]) {
-                    ((void(*)(id,SEL,id))objc_msgSend)(target, apiMethod.selector, data);
-                } else if ([HCWebViewJsBridgeUtil nonNull:responseCallback]) {
-                    ((void(*)(id,SEL,id))objc_msgSend)(target, apiMethod.selector, responseCallback);
-                } else {
-                    return HCJsBridgeHandleApiResultTypeErrorArgument;
-                }
-            } else if (apiMethod.numberOfParameter == 2) {
-                ((void(*)(id,SEL,id,id))objc_msgSend)(target, apiMethod.selector, data, responseCallback);
-            }
-            return HCJsBridgeHandleApiResultTypeSuccess;
+    HCJsBridgeMessageType messageType = [HCWebViewJsBridgeUtil judgeMessageTypeWithData:data
+                                                                               callback:responseCallback];
+    if (messageType == HCJsBridgeMessageTypeNoArgument) {
+        SEL sel = [HCWebViewJsBridgeUtil noParameterfindSELWithApiName:apiName.name
+                                                            methodList:cacheMethods];
+        if (!sel) {
+            return HCJsBridgeHandleApiResultTypeNotFoundMethod;
+        }
+        ((void(*)(id,SEL))objc_msgSend)(target, sel);
+    } else {
+        SEL sel = [HCWebViewJsBridgeUtil moreParameterfindSELWithApiName:apiName.name
+                                                              methodList:cacheMethods];
+        if (!sel) {
+            return HCJsBridgeHandleApiResultTypeNotFoundMethod;
+        }
+        if (messageType == HCJsBridgeMessageTypeDataAndCallback) {
+            ((void(*)(id,SEL,id,id))objc_msgSend)(target, sel, data, responseCallback);
+        } else if (messageType == HCJsBridgeMessageTypeOnlyData) {
+            ((void(*)(id,SEL,id))objc_msgSend)(target, sel, data);
+        } else if (messageType == HCJsBridgeMessageTypeOnlyCallback) {
+            ((void(*)(id,SEL,id))objc_msgSend)(target, sel, responseCallback);
         }
     }
-    return HCJsBridgeHandleApiResultTypeNotFoundMethod;
+    return HCJsBridgeHandleApiResultTypeSuccess;
+}
+
++ (SEL)noParameterfindSELWithApiName:(NSString *)apiName methodList:(NSArray<HCJsApiMethod *> *)methodList {
+    for (HCJsApiMethod *apiMethod in methodList) {
+        if ([apiMethod.name isEqualToString:apiName]) {
+            return apiMethod.selector;
+        }
+    }
+    return nil;
+}
+
++ (SEL)moreParameterfindSELWithApiName:(NSString *)apiName methodList:(NSArray<HCJsApiMethod *> *)methodList {
+    NSString *newApiName = [NSString stringWithFormat:@"%@:", apiName];
+    for (HCJsApiMethod *apiMethod in methodList) {
+        if ([apiMethod.name hasPrefix:newApiName]) {
+            return apiMethod.selector;
+        }
+    }
+    return nil;
+}
+
++ (HCJsBridgeMessageType)judgeMessageTypeWithData:(id)data
+                                         callback:(HCJBResponseCallback)responseCallback {
+    if ([HCWebViewJsBridgeUtil nonNull:data] && [HCWebViewJsBridgeUtil nonNull:responseCallback]) {
+        return HCJsBridgeMessageTypeDataAndCallback;
+    } else if ([HCWebViewJsBridgeUtil nonNull:data]) {
+        return HCJsBridgeMessageTypeOnlyData;
+    } else if ([HCWebViewJsBridgeUtil nonNull:responseCallback]) {
+        return HCJsBridgeMessageTypeOnlyCallback;
+    }
+    return HCJsBridgeMessageTypeNoArgument;
 }
 
 + (NSString *)generateCallbackId {

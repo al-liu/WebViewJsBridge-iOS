@@ -29,6 +29,13 @@ typedef NS_ENUM(NSUInteger, HCJsBridgeHandleApiResultType) {
     HCJsBridgeHandleApiResultTypeErrorArgument
 };
 
+typedef NS_ENUM(NSUInteger, HCJsBridgeMessageType) {
+    HCJsBridgeMessageTypeDataAndCallback = 0,
+    HCJsBridgeMessageTypeOnlyData,
+    HCJsBridgeMessageTypeOnlyCallback,
+    HCJsBridgeMessageTypeNoArgument
+};
+
 @interface HCWebViewJsBridgeUtil : NSObject
 
 + (BOOL)nonNull:(id)value;
