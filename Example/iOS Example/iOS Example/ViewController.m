@@ -10,8 +10,9 @@
 #import <WebKit/WebKit.h>
 #import "HCWKWebViewJsBridge.h"
 #import "DemoJsApi.h"
+#import "TestJsApi.h"
 
-@interface ViewController () {
+@interface ViewController () <TestJsApiDelegate>{
     HCWKWebViewJsBridge *_bridge;
 }
 @property (weak, nonatomic) IBOutlet WKWebView *wkWebView;
@@ -30,6 +31,9 @@
     [_bridge enableDebugLogging:YES];
     DemoJsApi *defaultApi = [DemoJsApi new];
     [_bridge addJsBridgeApiObject:defaultApi namespace:@"ui"];
+    TestJsApi *testApi = [TestJsApi new];
+    testApi.context = self;
+    [_bridge addJsBridgeApiObject:testApi namespace:@"test"];
     
     [_bridge callHandler:@"test1" data:@"test1 data" responseCallback:^(id  _Nonnull responseData) {
         NSLog(@"test1 callback data is:%@", responseData);
@@ -53,5 +57,9 @@
     }];
 }
 
+#pragma mark - TestJsApiDelegate
+- (NSString *)alertCancelResponseData {
+    return @"Good blessings from HCWebViewJsBridge.";
+}
 
 @end

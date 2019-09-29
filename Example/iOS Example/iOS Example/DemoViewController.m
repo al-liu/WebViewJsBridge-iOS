@@ -9,6 +9,7 @@
 #import "DemoViewController.h"
 #import "HCWebViewJsBridge.h"
 #import "DemoJsApi.h"
+#import "TestJsApi.h"
 
 @interface DemoViewController () {
     HCWebViewJsBridge *_bridge;
@@ -30,6 +31,9 @@
     [_bridge enableDebugLogging:YES];
     DemoJsApi *defaultApi = [DemoJsApi new];
     [_bridge addJsBridgeApiObject:defaultApi namespace:@"ui"];
+    TestJsApi *testApi = [TestJsApi new];
+    testApi.context = self;
+    [_bridge addJsBridgeApiObject:testApi namespace:@"test"];
     
     [_bridge callHandler:@"test1" data:@"test1 data" responseCallback:^(id  _Nonnull responseData) {
         NSLog(@"test1 callback data is:%@", responseData);

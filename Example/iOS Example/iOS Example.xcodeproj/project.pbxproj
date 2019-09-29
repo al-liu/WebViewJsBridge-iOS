@@ -27,6 +27,9 @@
 		E3E35B24233E177D00075B23 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = E3E35B22233E177D00075B23 /* test.html */; };
 		E3E35B25233E177D00075B23 /* hcJsBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = E3E35B23233E177D00075B23 /* hcJsBridge.js */; };
 		E3E35B28233E17C700075B23 /* DemoJsApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E35B27233E17C700075B23 /* DemoJsApi.m */; };
+		E3E35B452340E7A300075B23 /* vue.js in Resources */ = {isa = PBXBuildFile; fileRef = E3E35B442340E7A300075B23 /* vue.js */; };
+		E3E35B482340E7C900075B23 /* TestJsApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E35B462340E7C900075B23 /* TestJsApi.m */; };
+		E3E35B4A2340EC2100075B23 /* vconsole.min.js in Resources */ = {isa = PBXBuildFile; fileRef = E3E35B492340EC2000075B23 /* vconsole.min.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,10 @@
 		E3E35B23233E177D00075B23 /* hcJsBridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = hcJsBridge.js; sourceTree = "<group>"; };
 		E3E35B26233E17C700075B23 /* DemoJsApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoJsApi.h; sourceTree = "<group>"; };
 		E3E35B27233E17C700075B23 /* DemoJsApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoJsApi.m; sourceTree = "<group>"; };
+		E3E35B442340E7A300075B23 /* vue.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = vue.js; sourceTree = "<group>"; };
+		E3E35B462340E7C900075B23 /* TestJsApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestJsApi.m; sourceTree = "<group>"; };
+		E3E35B472340E7C900075B23 /* TestJsApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestJsApi.h; sourceTree = "<group>"; };
+		E3E35B492340EC2000075B23 /* vconsole.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = vconsole.min.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,11 +153,15 @@
 				E3E35B06233E143400075B23 /* DemoViewController.m */,
 				E3E35B26233E17C700075B23 /* DemoJsApi.h */,
 				E3E35B27233E17C700075B23 /* DemoJsApi.m */,
+				E3E35B472340E7C900075B23 /* TestJsApi.h */,
+				E3E35B462340E7C900075B23 /* TestJsApi.m */,
 				E3E35AD6233E0BFB00075B23 /* Main.storyboard */,
 				E3E35AD9233E0BFC00075B23 /* Assets.xcassets */,
 				E3E35ADB233E0BFC00075B23 /* LaunchScreen.storyboard */,
 				E3E35ADE233E0BFC00075B23 /* Info.plist */,
 				E3E35ADF233E0BFC00075B23 /* main.m */,
+				E3E35B442340E7A300075B23 /* vue.js */,
+				E3E35B492340EC2000075B23 /* vconsole.min.js */,
 				E3E35B23233E177D00075B23 /* hcJsBridge.js */,
 				E3E35B22233E177D00075B23 /* test.html */,
 			);
@@ -314,6 +325,8 @@
 				E3E35ADA233E0BFC00075B23 /* Assets.xcassets in Resources */,
 				E3E35B25233E177D00075B23 /* hcJsBridge.js in Resources */,
 				E3E35AD8233E0BFB00075B23 /* Main.storyboard in Resources */,
+				E3E35B4A2340EC2100075B23 /* vconsole.min.js in Resources */,
+				E3E35B452340E7A300075B23 /* vue.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3E35B482340E7C900075B23 /* TestJsApi.m in Sources */,
 				E3E35B1C233E173800075B23 /* HCWebViewJsBridgeUtil.m in Sources */,
 				E3E35B1E233E173800075B23 /* NSObject+HCJSContext.m in Sources */,
 				E3E35B20233E173800075B23 /* HCWebViewJsBridge.m in Sources */,

@@ -37,9 +37,10 @@
     }
 
     function handleMessageFromNative(messageJSON) {
+  
         var message = messageJSON;
         if (typeof message != "object") {
-            message = JSON.parse(messageJSON);
+            message = JSON.parse(unescape(messageJSON));
         }
         var responseId = message["responseId"];
         if (responseId) {

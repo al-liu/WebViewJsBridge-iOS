@@ -9,6 +9,8 @@
             .logLine { border-bottom:1px solid #ccc; padding:4px 2px; font-family:courier; font-size:11px; }
         </style>
         <script src="./hcJsBridge.js"> </script>
+        <script src="./vconsole.min.js"></script>
+        <script src="./vue.js"></script>
     </head>
     <body>
         <h2>HCJsBridge Demo</h2>
@@ -16,8 +18,18 @@
         <button type="button" onclick="test2()">test2</button>
         <button type="button" onclick="test3()">test3</button>
         <button type="button" onclick="test4()">test4</button>
+        <div id="app">
+            <button @click="testAlert1()">native alert</button>
+            <button @click="testPhoto1()">select photo</button>
+            <button @click="testRequestGet1()">native get request</button>
+            <div>
+                <img v-bind:src="'data:image/png;base64,'+imageBytes" height="100" width="100"/>
+            </div>
+        </div>
+        <p>Log:</p>
         <div id='log'></div>
         <script>
+            var vConsole = new VConsole();
             var lineNum = 1
             function log(message, data) {
                 var content = "";
@@ -84,6 +96,46 @@
             log("beginning call native,handlename is ui.test3");
             hcJsBridge.callHandler('ui.test3');
             
+            console.log('Hello world');
+            var app = new Vue({
+                el: '#app',
+                data: {
+                imageBytes: ''
+              },
+              methods: {
+                testAlert1: function () {
+                  var data = {
+                    title: "The Great Gatsby",
+                    desc: "All the bright precious things fade so fast...and they don't come back."
+                  }
+                  hcJsBridge.callHandler('test.alert', data, function (responseData) {
+                     log('test.alert responseData:', responseData);
+                  });
+                  
+                },
+
+                testPhoto1: function () {
+                  var self = this
+                  hcJsBridge.callHandler('test.selectPhoto', function (responseData) {
+                     self.imageBytes = responseData.image
+                  });
+                },
+
+                testRequestGet1: function () {
+                  var self = this
+                  var url = "https://www.baidu.com/"
+                  var params = {'id':2, 'pageNum':3, 'pageSize':10, 'keyword':'xx'}
+                  var data = {
+                    url: url,
+                    params: params
+                  }
+                  hcJsBridge.callHandler('test.getRequest', data, function (response) {
+                    console.log(response);
+                    log('getRequest response:', response);
+                  })
+                }              
+              },
+            })
         </script>
     </body>
 </html>

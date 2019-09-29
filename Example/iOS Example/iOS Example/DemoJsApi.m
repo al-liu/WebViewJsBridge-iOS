@@ -13,7 +13,7 @@
 
 - (void)test1:(NSString *)data callback:(HCJBResponseCallback)callback {
     NSLog(@"Js call native api test1, data is:%@", data);
-    callback(@"native api test1’callback.");
+    callback(@"native api test1’callback.(备注：汉字测试)");
 }
 
 - (void)test2:(NSDictionary *)data {
@@ -26,7 +26,7 @@
 
 - (void)test4:(HCJBResponseCallback)callback {
     NSLog(@"Js native api:test4");
-    callback(@"native api test4'callback.");
+    callback(@"native api test4'callback.(备注：汉字测试)");
 }
 
 @end
