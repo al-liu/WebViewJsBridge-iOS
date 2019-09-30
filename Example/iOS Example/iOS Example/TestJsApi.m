@@ -71,7 +71,6 @@
     NSDictionary *params = data[@"params"];
     NSMutableString *parameterString = [[NSMutableString alloc] initWithString:url];
     if (params && params.allKeys.count > 0) {
-        NSMutableString *parameterString = [[NSMutableString alloc] initWithString:url];
         [parameterString appendString:@"?"];
         int pos =0;
         for (NSString *key in params.allKeys) {
