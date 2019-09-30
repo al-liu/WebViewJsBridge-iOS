@@ -67,3 +67,4 @@ fastlane/test_output
 
 iOSInjectionProject/
 Example/iOS Example/iOS Example.xcodeproj/project.xcworkspace/xcuserdata/lhc.xcuserdatad/UserInterfaceState.xcuserstate
+*.xcuserstate
