@@ -177,7 +177,7 @@ static NSString * const kJsBridgeApiSpacenameDefault = @"default";
 
 #pragma mark - Notification Selector
 - (void)didCreateJSContext:(NSNotification *)notification {
-    NSString *identifier = [NSString stringWithFormat:@"jsContext_indentifier_%lud", _webView.hash];
+    NSString *identifier = [NSString stringWithFormat:@"jsContext_indentifier_%lud", (long)_webView.hash];
     NSString *identifierJS = [NSString stringWithFormat:@"var %@ = '%@'", identifier, identifier];
     [_webView stringByEvaluatingJavaScriptFromString:identifierJS];
     JSContext *context = notification.object;

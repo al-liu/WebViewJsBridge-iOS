@@ -11,7 +11,7 @@
 #import "DemoJsApi.h"
 #import "TestJsApi.h"
 
-@interface DemoViewController () {
+@interface DemoViewController () <TestJsApiDelegate>{
     HCWebViewJsBridge *_bridge;
 }
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
