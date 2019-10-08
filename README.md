@@ -3,6 +3,7 @@
 WebViewJsBridge-iOS is a tool library for communication between HTML5 and UIWebView & WKWebView.
 
 WebViewJsBridge-Android：[https://github.com/al-liu/WebViewJsBridge-Android](https://github.com/al-liu/WebViewJsBridge-Android)
+
 [Chinese-Document 中文文档](./README-CH.md)
 
 It is cross-platform supports iOS, Android, JavaScript and easy to use. It is non-intrusive to WebView. Support the use of classes to manage apis, each implementation class corresponds to a unique namespace, such as ui.alert, ui is a namespace, and alert is an implementation method.
@@ -40,7 +41,7 @@ Download the source code for HCWebViewJsBridge and add it to your project to use
 ### Install HCWebViewJsBridge in HTML5
 `<script>hcJsBridge.js</script>` in html.
 
-## Example 的说明
+## Example
 The full example is provided in the `/Example/iOS Example` folder, including basic demos and advanced usage, such as calling the camera with `UIImagePickerController` to take a picture and using `NSURLSession` to make a GET request.
 
 ## Usage
