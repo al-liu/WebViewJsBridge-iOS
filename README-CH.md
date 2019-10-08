@@ -10,7 +10,7 @@ WebViewJsBridge-Android：[https://github.com/al-liu/WebViewJsBridge-Android](ht
 
 下面这张图帮助理解它们之间的关系：
 
-![WebViewJsBridge-namespace.png](https://i.loli.net/2019/10/08/a8hiDPQNAUOlByo.png)
+![WebViewJsBridge-namespace.png](https://i.loli.net/2019/10/08/hdjYIevufoQr7wX.png)
 
 ## 系统版本要求
 如果使用 UIWebView 则支持 iOS7 及以上的系统版本。
