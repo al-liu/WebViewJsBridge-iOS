@@ -1,5 +1,7 @@
 # WebViewJsBridge-iOS
 
+[![](https://img.shields.io/badge/build-pass-green)](https://github.com/al-liu/WebViewJsBridge-iOS) [![](https://img.shields.io/badge/language-Objective--C-brightgreen)](https://github.com/al-liu/WebViewJsBridge-iOS) [![](https://img.shields.io/cocoapods/p/HCWebViewJsBridge)](https://github.com/al-liu/WebViewJsBridge-iOS) [![](https://img.shields.io/github/license/al-liu/WebViewJsBridge-iOS)](./LICENSE)
+
 WebViewJsBridge-iOS 是 HTML5 和 UIWebView & WKWebView 之间用于通讯的工具库。
 
 WebViewJsBridge-Android：[https://github.com/al-liu/WebViewJsBridge-Android](https://github.com/al-liu/WebViewJsBridge-Android)

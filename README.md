@@ -1,5 +1,7 @@
 # WebViewJsBridge-iOS
 
+[![](https://img.shields.io/badge/build-pass-green)](https://github.com/al-liu/WebViewJsBridge-iOS) [![](https://img.shields.io/badge/language-Objective--C-brightgreen)](https://github.com/al-liu/WebViewJsBridge-iOS) [![](https://img.shields.io/cocoapods/p/HCWebViewJsBridge)](https://github.com/al-liu/WebViewJsBridge-iOS) [![](https://img.shields.io/github/license/al-liu/WebViewJsBridge-iOS)](./LICENSE)
+
 WebViewJsBridge-iOS is a tool library for communication between HTML5 and UIWebView & WKWebView.
 
 WebViewJsBridge-Android：[https://github.com/al-liu/WebViewJsBridge-Android](https://github.com/al-liu/WebViewJsBridge-Android)
