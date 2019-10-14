@@ -152,7 +152,7 @@ static NSString * const kJsBridgeApiSpacenameDefault = @"default";
             return;
         }
         [handleMessage performSelector:@selector(callWithArguments:)
-                              onThread:[HCWebViewJsBridgeUtil isNull:_webThread] ? [NSThread currentThread] : _webThread
+                              onThread:[HCWebViewJsBridgeUtil isNull:self->_webThread] ? [NSThread currentThread] : self->_webThread
                             withObject:@[message]
                          waitUntilDone:NO];
     });
