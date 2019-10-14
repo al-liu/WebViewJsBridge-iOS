@@ -140,20 +140,22 @@ static NSString * const kJsBridgeApiSpacenameDefault = @"default";
 }
 
 - (void)hc_sendMessage:(NSDictionary *)message {
-    JSValue *jsBridge = [self->_jsContext objectForKeyedSubscript:kCoreJsBridge];
-    if ([HCWebViewJsBridgeUtil isNull:jsBridge]) {
-        HCJBLog(@"Method(hc_sendMessage) call failed, the global object's property(hcJsBridge) of js does not exist");
-        return;
-    }
-    JSValue *handleMessage = [jsBridge objectForKeyedSubscript:kCoreJsBridgeMessageHandler];
-    if ([HCWebViewJsBridgeUtil isNull:handleMessage]) {
-        HCJBLog(@"Method(hc_sendMessage) call failed, the global object(hcJsBridge)'s property(handleMessageFromNative) of js does not exist");
-        return;
-    }
-    [handleMessage performSelector:@selector(callWithArguments:)
-                          onThread:[HCWebViewJsBridgeUtil isNull:_webThread] ? [NSThread currentThread] : _webThread
-                        withObject:@[message]
-                     waitUntilDone:NO];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        JSValue *jsBridge = [self->_jsContext objectForKeyedSubscript:kCoreJsBridge];
+        if ([HCWebViewJsBridgeUtil isNull:jsBridge]) {
+            HCJBLog(@"Method(hc_sendMessage) call failed, the global object's property(hcJsBridge) of js does not exist");
+            return;
+        }
+        JSValue *handleMessage = [jsBridge objectForKeyedSubscript:kCoreJsBridgeMessageHandler];
+        if ([HCWebViewJsBridgeUtil isNull:handleMessage]) {
+            HCJBLog(@"Method(hc_sendMessage) call failed, the global object(hcJsBridge)'s property(handleMessageFromNative) of js does not exist");
+            return;
+        }
+        [handleMessage performSelector:@selector(callWithArguments:)
+                              onThread:[HCWebViewJsBridgeUtil isNull:_webThread] ? [NSThread currentThread] : _webThread
+                            withObject:@[message]
+                         waitUntilDone:NO];
+    });
 }
 
 - (void)hc_registerCreateJSContextNotification {
