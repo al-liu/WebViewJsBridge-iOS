@@ -25,7 +25,7 @@ WebViewJsBridge-Android：[https://github.com/al-liu/WebViewJsBridge-Android](ht
 platform :ios, '8.0'
 
 target 'TargetName' do
-  pod 'HCWebViewJsBridge', '~> 1.0.0'
+  pod 'HCWebViewJsBridge', '~> 1.0.1'
 end
 ```
 
