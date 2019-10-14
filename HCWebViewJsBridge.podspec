@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "HCWebViewJsBridge"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = "HCWebViewJsBridge is used to implement communication between H5 and WKWebView/UIWebView.
 "
 
