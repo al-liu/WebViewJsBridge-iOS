@@ -34,6 +34,12 @@
  */
 + (instancetype _Nonnull)bridgeWithWebView:(UIWebView * _Nonnull)webView;
 
+/// If hcJsBridge.js is not introduced in H5, you need to call the static constructor and enable is YES.
+///
+/// @param webView specified a UIWebView object
+/// @param enable Default NO, If YES, the native will inject js into H5 and initialize hcjsbridge object.
++ (instancetype _Nonnull)bridgeWithWebView:(UIWebView * _Nonnull)webView injectJS:(BOOL)enable;
+
 /**
  Add an class object to HCWebViewJsBridge with default namespace.
  This class object is used to implement the handler method of H5 calling native.

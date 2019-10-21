@@ -15,6 +15,7 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 #import <JavaScriptCore/JavaScriptCore.h>
+#import "HCWebViewJavaScript.h"
 
 static NSString * const kCoreJSExport = @"nativeBridgeHead";
 static NSString * const kCoreJsBridge = @"hcJsBridge";
@@ -38,6 +39,7 @@ static NSString * const kJsBridgeApiSpacenameDefault = @"default";
     NSMutableArray<NSDictionary *> *_startupMessageQueue;
     NSMutableDictionary<NSString *, HCJBResponseCallback> *_responseCallbackDictionary;
     BOOL _isDebug;
+    BOOL _enableAutoInjectJs;
 }
 
 @end
@@ -46,8 +48,12 @@ static NSString * const kJsBridgeApiSpacenameDefault = @"default";
 
 #pragma mark - Constructor
 + (instancetype _Nonnull)bridgeWithWebView:(UIWebView * _Nonnull)webView {
+    return [HCWebViewJsBridge bridgeWithWebView:webView injectJS:NO];
+}
+
++ (instancetype _Nonnull)bridgeWithWebView:(UIWebView * _Nonnull)webView injectJS:(BOOL)enable {
     HCWebViewJsBridge *bridge = [[self alloc] init];
-    [bridge hc_initSetup:webView];
+    [bridge hc_initSetup:webView injectJs:enable];
     return bridge;
 }
 
@@ -135,8 +141,9 @@ static NSString * const kJsBridgeApiSpacenameDefault = @"default";
 }
 
 #pragma mark - Private Method
-- (void)hc_initSetup:(UIWebView *)webView {
+- (void)hc_initSetup:(UIWebView *)webView injectJs:(BOOL)enable {
     _webView = webView;
+    _enableAutoInjectJs = enable;
 }
 
 - (void)hc_sendMessage:(NSDictionary *)message {
@@ -186,6 +193,9 @@ static NSString * const kJsBridgeApiSpacenameDefault = @"default";
     if (![context[identifier].toString isEqualToString:identifier]) return;
     _jsContext = context;
     [self hc_injectCoreJSExportImpl];
+    if (_enableAutoInjectJs) {
+        [_jsContext evaluateScript:hcJsBridgeJavaScript()];
+    }
     _jsContext.exceptionHandler = ^(JSContext *context, JSValue *exception) {
         HCJBLog(@"JsContext_exceptionHandler: %@", exception);
         context.exception = exception;

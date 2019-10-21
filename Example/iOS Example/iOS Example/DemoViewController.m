@@ -23,11 +23,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSString* htmlPath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"html"];
+    // Test does not introduce hcJsBridge.js in H5, you need to load testWithNoJsFile.html.
+//    NSString* htmlPath = [[NSBundle mainBundle] pathForResource:@"testWithNoJsFile" ofType:@"html"];
     NSString* appHtml = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
     NSURL *baseURL = [NSURL fileURLWithPath:htmlPath];
     [self.webView loadHTMLString:appHtml baseURL:baseURL];
     
     _bridge = [HCWebViewJsBridge bridgeWithWebView:self.webView];
+    // Test does not introduce hcJsBridge.js in H5, you need to use 'bridgeWithWebView:injectJS:YES' method.
+//    _bridge = [HCWebViewJsBridge bridgeWithWebView:self.webView injectJS:YES];
     [_bridge enableDebugLogging:YES];
     DemoJsApi *defaultApi = [DemoJsApi new];
     [_bridge addJsBridgeApiObject:defaultApi namespace:@"ui"];

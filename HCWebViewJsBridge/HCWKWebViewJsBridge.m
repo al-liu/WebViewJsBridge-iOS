@@ -7,6 +7,7 @@
 //
 
 #import "HCWKWebViewJsBridge.h"
+#import "HCWebViewJavaScript.h"
 
 static NSString * const kWKHandleMessageFunction = @"handleMessage";
 static NSString * const kWKHandleResponseMessageFunction = @"handleResponseMessage";
@@ -28,6 +29,7 @@ static NSString * const kJsBridgeApiSpacenameDefault = @"default";
     NSMutableDictionary<NSString *, HCJBResponseCallback> *_responseCallbackDictionary;
     NSMutableArray<NSDictionary *> *_startupMessageQueue;
     BOOL _isDebug;
+    BOOL _enableAutoInjectJs;
 }
 
 @end
@@ -36,8 +38,12 @@ static NSString * const kJsBridgeApiSpacenameDefault = @"default";
 
 #pragma mark - 构造器
 + (instancetype _Nonnull)bridgeWithWebView:(WKWebView * _Nonnull)webView {
+    return [HCWKWebViewJsBridge bridgeWithWebView:webView injectJS:NO];
+}
+
++ (instancetype _Nonnull)bridgeWithWebView:(WKWebView * _Nonnull)webView injectJS:(BOOL)enable {
     HCWKWebViewJsBridge *bridge = [[self alloc] init];
-    [bridge hc_initSetup:webView];
+    [bridge hc_initSetup:webView injectJs:enable];
     return bridge;
 }
 
@@ -62,12 +68,19 @@ static NSString * const kJsBridgeApiSpacenameDefault = @"default";
 }
 
 #pragma mark - Private Method
-- (void)hc_initSetup:(WKWebView *)webView {
+- (void)hc_initSetup:(WKWebView *)webView injectJs:(BOOL)enable {
     _webView = webView;
+    _enableAutoInjectJs = enable;
     WKUserContentController *userContentController = [[_webView configuration] userContentController];
     [userContentController addScriptMessageHandler:self name:kWKHandleMessageFunction];
     [userContentController addScriptMessageHandler:self name:kWKHandleResponseMessageFunction];
     [userContentController addScriptMessageHandler:self name:kWKHandleStartupMessageFunction];
+    if (_enableAutoInjectJs) {
+        WKUserScript *script = [[WKUserScript alloc] initWithSource:hcJsBridgeJavaScript()
+                                                      injectionTime:WKUserScriptInjectionTimeAtDocumentEnd
+                                                   forMainFrameOnly:YES];
+        [userContentController addUserScript:script];
+    }
 }
 
 #pragma mark - Public Api

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+            <title>HCJsBridge Test With No hcJsBridge.js</title>
+        <style type="text/css">
+            button { margin:0 3px 10px; font-size:12px; }
+            .logLine { border-bottom:1px solid #ccc; padding:4px 2px; font-family:courier; font-size:11px; }
+        </style>
+        <script src="./vconsole.min.js"></script>
+        <script src="./vue.js"></script>
+    </head>
+    <body>
+        <h2>HCJsBridge Demo With No hcJsBridge.js</h2>
+        <button type="button" onclick="test1()">test1</button>
+        <button type="button" onclick="test2()">test2</button>
+        <button type="button" onclick="test3()">test3</button>
+        <button type="button" onclick="test4()">test4</button>
+        <div id="app">
+            <button @click="testAlert1()">native alert</button>
+            <button @click="testPhoto1()">select photo</button>
+            <button @click="testRequestGet1()">native get request</button>
+            <div>
+                <img v-bind:src="'data:image/png;base64,'+imageBytes" height="100" width="100"/>
+            </div>
+        </div>
+        <p>Log:</p>
+        <div id='log'></div>
+        <script>
+            var vConsole = new VConsole();
+            var lineNum = 1
+            function log(message, data) {
+                var content = "";
+                if (data == null) {
+                } else if (typeof data === 'object') {
+                    content = JSON.stringify(data)
+                } else {
+                    content = data;
+                }
+                var log = document.getElementById('log')
+                var el = document.createElement('div')
+                el.className = 'logLine'
+                if (content === "") {
+                    el.innerHTML = lineNum++ + '. ' + message
+                } else {
+                    el.innerHTML = lineNum++ + '. ' + message + ':<br/>' + JSON.stringify(data)
+                }
+                if (log.children.length) { log.insertBefore(el, log.children[0]) }
+                else { log.appendChild(el) }
+            }
+        
+            function test1() {
+                log("Js calling native, handlename is ui.test1")
+                var data = "test1 data";
+                hcJsBridge.callHandler('ui.test1', data, function (responseData) {
+                    log('Js receives the response data returned by native, response data is', responseData);
+                })
+            }
+        
+            function test2() {
+                log("Js calling native, handlename is ui.test2, no callback.")
+                var data = {hello: "world"};
+                hcJsBridge.callHandler('ui.test2', data)
+            }
+        
+            function test3() {
+                log("Js calling native, handlename is ui.test3, no data, no callback.")
+                hcJsBridge.callHandler('ui.test3')
+            }
+
+            function test4() {
+                log("Js calling native, handlename is ui.test4, no data.")
+                hcJsBridge.callHandler('ui.test4', function (responseData) {
+                    log('Js receives the response data returned by native, response data is', responseData);
+                })
+            }
+            
+            window._hcJsBridgeInitFinished = function(bridge) {
+                log("beginning register handler (test1, test2, test3)");
+                bridge.registerHandler("test1", function(data, callback) {
+                    log('Native call js ,handlename is test1, data is:', data);
+                    callback('callback native,handlename is test1');
+                })
+
+                bridge.registerHandler("test2", function(data, callback) {
+                    log('Native call js ,handlename is test2, data is:', data);
+                    callback('callback native,handlename is test2');
+                })
+
+                bridge.registerHandler("test3", function(data, callback) {
+                    log('Native call js ,handlename is test3, data is:', data);
+                    callback('callback native,handlename is test3');
+                })
+                
+                log("beginning call native,handlename is ui.test3");
+                bridge.callHandler('ui.test3');
+            }
+            
+            console.log('Hello world');
+            var app = new Vue({
+                el: '#app',
+                data: {
+                imageBytes: ''
+              },
+              methods: {
+                testAlert1: function () {
+                  var data = {
+                    title: "The Great Gatsby",
+                    desc: "All the bright precious things fade so fast...and they don't come back."
+                  }
+                  hcJsBridge.callHandler('test.alert', data, function (responseData) {
+                     log('test.alert responseData:', responseData);
+                  });
+                  
+                },
+
+                testPhoto1: function () {
+                  var self = this
+                  hcJsBridge.callHandler('test.selectPhoto', function (responseData) {
+                     self.imageBytes = responseData.image
+                  });
+                },
+
+                testRequestGet1: function () {
+                  var self = this
+                  var url = "https://suggest.taobao.com/sug"
+                  var params = {code:"utf-8", q:"夹克", callback:"cb"}
+                  var data = {
+                    url: url,
+                    params: params
+                  }
+                  hcJsBridge.callHandler('test.getRequest', data, function (response) {
+                    console.log(response);
+                    log('getRequest response:', response);
+                  })
+                }              
+              },
+            })
+        </script>
+    </body>
+</html>
+

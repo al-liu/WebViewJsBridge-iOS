@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E34C7EA2235D46BE0096D99D /* testWithNoJsFile.html in Resources */ = {isa = PBXBuildFile; fileRef = E34C7EA1235D46BE0096D99D /* testWithNoJsFile.html */; };
+		E34C7EA5235D50E60096D99D /* HCWebViewJavaScript.m in Sources */ = {isa = PBXBuildFile; fileRef = E34C7EA4235D50E60096D99D /* HCWebViewJavaScript.m */; };
 		E3E35AD2233E0BFB00075B23 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E35AD1233E0BFB00075B23 /* AppDelegate.m */; };
 		E3E35AD5233E0BFB00075B23 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E35AD4233E0BFB00075B23 /* ViewController.m */; };
 		E3E35AD8233E0BFB00075B23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E35AD6233E0BFB00075B23 /* Main.storyboard */; };
@@ -50,6 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E34C7EA1235D46BE0096D99D /* testWithNoJsFile.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = testWithNoJsFile.html; sourceTree = "<group>"; };
+		E34C7EA3235D50E60096D99D /* HCWebViewJavaScript.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HCWebViewJavaScript.h; sourceTree = "<group>"; };
+		E34C7EA4235D50E60096D99D /* HCWebViewJavaScript.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HCWebViewJavaScript.m; sourceTree = "<group>"; };
 		E3E35ACD233E0BFB00075B23 /* iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3E35AD0233E0BFB00075B23 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E3E35AD1233E0BFB00075B23 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -164,6 +169,7 @@
 				E3E35B492340EC2000075B23 /* vconsole.min.js */,
 				E3E35B23233E177D00075B23 /* hcJsBridge.js */,
 				E3E35B22233E177D00075B23 /* test.html */,
+				E34C7EA1235D46BE0096D99D /* testWithNoJsFile.html */,
 			);
 			path = "iOS Example";
 			sourceTree = "<group>";
@@ -212,6 +218,8 @@
 				E3E35B15233E173800075B23 /* HCCoreJSExport.h */,
 				E3E35B12233E173800075B23 /* HCCoreJSExportImpl.h */,
 				E3E35B17233E173800075B23 /* HCCoreJSExportImpl.m */,
+				E34C7EA3235D50E60096D99D /* HCWebViewJavaScript.h */,
+				E34C7EA4235D50E60096D99D /* HCWebViewJavaScript.m */,
 			);
 			name = HCWebViewJsBridge;
 			path = ../../../HCWebViewJsBridge;
@@ -326,6 +334,7 @@
 				E3E35B25233E177D00075B23 /* hcJsBridge.js in Resources */,
 				E3E35AD8233E0BFB00075B23 /* Main.storyboard in Resources */,
 				E3E35B4A2340EC2100075B23 /* vconsole.min.js in Resources */,
+				E34C7EA2235D46BE0096D99D /* testWithNoJsFile.html in Resources */,
 				E3E35B452340E7A300075B23 /* vue.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +363,7 @@
 				E3E35B482340E7C900075B23 /* TestJsApi.m in Sources */,
 				E3E35B1C233E173800075B23 /* HCWebViewJsBridgeUtil.m in Sources */,
 				E3E35B1E233E173800075B23 /* NSObject+HCJSContext.m in Sources */,
+				E34C7EA5235D50E60096D99D /* HCWebViewJavaScript.m in Sources */,
 				E3E35B20233E173800075B23 /* HCWebViewJsBridge.m in Sources */,
 				E3E35AD5233E0BFB00075B23 /* ViewController.m in Sources */,
 				E3E35B1D233E173800075B23 /* HCJsApiName.m in Sources */,
