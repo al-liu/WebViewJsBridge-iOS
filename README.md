@@ -8,7 +8,7 @@ WebViewJsBridge-Android：[https://github.com/al-liu/WebViewJsBridge-Android](ht
 
 [Chinese-Document 中文文档](./README-CH.md)
 
-It is cross-platform supports iOS, Android, JavaScript and easy to use. It is non-intrusive to WebView. Support the use of classes to manage apis, each implementation class corresponds to a unique namespace, such as ui.alert, ui is a namespace, and alert is an implementation method.
+It is cross-platform supports iOS, Android, JavaScript and easy to use. It is non-intrusive to WebView. Support the use of classes to manage apis, each implementation class corresponds to a unique namespace, such as ui.alert, ui is a namespace, and alert is an implementation method.In version 1.1.0, H5 may not introduce the hcJsBridge.js file.
 
 Refer to the following diagram:
 
@@ -43,6 +43,8 @@ Download the source code for HCWebViewJsBridge and add it to your project to use
 ### Install HCWebViewJsBridge in HTML5
 `<script>hcJsBridge.js</script>` in html.
 
+**Note: In version 1.1.0, H5 may not introduce the hcJsBridge.js file, but there are a few differences in use.**
+
 ## Example
 The full example is provided in the `/Example/iOS Example` folder, including basic demos and advanced usage, such as calling the camera with `UIImagePickerController` to take a picture and using `NSURLSession` to make a GET request.
 
@@ -52,14 +54,30 @@ The full example is provided in the `/Example/iOS Example` folder, including bas
 
 #### UIWebView
 
+**If H5 introduces hcJsBridge.js, the following initialization method is used.**
+
 ```oc
 _bridge = [HCWebViewJsBridge bridgeWithWebView:self.webView];
 ```
 
+**If H5 does not introduce hcJsBridge.js, the following initialization method is used.**
+
+```oc
+_bridge = [HCWebViewJsBridge bridgeWithWebView:self.webView injectJS:YES];
+```
+
 #### WKWebView
+
+**If H5 introduces hcJsBridge.js, the following initialization method is used.**
 
 ```oc
 _bridge = [HCWKWebViewJsBridge bridgeWithWebView:self.wkWebView];
+```
+
+**If H5 does not introduce hcJsBridge.js, the following initialization method is used.**
+
+```oc
+_bridge = [HCWKWebViewJsBridge bridgeWithWebView:self.wkWebView injectJS:YES];
 ```
 
 ### Register implementation class in native
@@ -109,6 +127,8 @@ RequestJsApi *requestJsApi = [RequestJsApi new];
 
 ### Initialize WebViewJsBridge in HTML5
 
+**If H5 introduces hcJsBridge.js, it is introduced in the following way.**
+
 ```js
 <!DOCTYPE html>
 <html>
@@ -118,6 +138,19 @@ RequestJsApi *requestJsApi = [RequestJsApi new];
     </head>
     ...
 </html>
+```
+
+**If H5 does not introduce hcJsBridge.js, use the following method to register the apis.**
+
+```js
+// Wait for the bridge initialization to complete in this window._hcJsBridgeInitFinished global function, then register the api, initial call.
+window._hcJsBridgeInitFinished = function(bridge) {
+    bridge.registerHandler("test1", function(data, callback) {
+        callback('callback native,handlename is test1');
+    })
+    
+    bridge.callHandler('ui.test3');
+}
 ```
 
 ### Register apis for native call in HTML5
