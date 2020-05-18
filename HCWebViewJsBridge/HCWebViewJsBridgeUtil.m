@@ -87,7 +87,11 @@ static NSString * const kJsBridgeNativeCallbackFormat = @"native_callback_%@";
         }
         ((void(*)(id,SEL))objc_msgSend)(target, sel);
     } else {
-        SEL sel = [HCWebViewJsBridgeUtil moreParameterfindSELWithApiName:apiName.name
+        NSString *searchApiName = [NSString stringWithFormat:@"%@:", apiName.name];
+        if (messageType == HCJsBridgeMessageTypeDataAndCallback) {
+            searchApiName = [NSString stringWithFormat:@"%@:callback:", apiName.name];
+        }
+        SEL sel = [HCWebViewJsBridgeUtil moreParameterfindSELWithApiName:searchApiName
                                                               methodList:cacheMethods];
         if (!sel) {
             return HCJsBridgeHandleApiResultTypeNotFoundMethod;
@@ -113,9 +117,8 @@ static NSString * const kJsBridgeNativeCallbackFormat = @"native_callback_%@";
 }
 
 + (SEL)moreParameterfindSELWithApiName:(NSString *)apiName methodList:(NSArray<HCJsApiMethod *> *)methodList {
-    NSString *newApiName = [NSString stringWithFormat:@"%@:", apiName];
     for (HCJsApiMethod *apiMethod in methodList) {
-        if ([apiMethod.name hasPrefix:newApiName]) {
+        if ([apiMethod.name isEqualToString:apiName]) {
             return apiMethod.selector;
         }
     }
