@@ -19,7 +19,7 @@ WebViewJsBridge-iOS 是 HTML5 和 WKWebView 之间用于通讯的工具库。
 platform :ios, '8.0'
 
 target 'TargetName' do
-  pod 'HCWebViewJsBridge', '~> 1.1.0'
+  pod 'HCWebViewJsBridge', '~> 1.2.0'
 end
 ```
 
