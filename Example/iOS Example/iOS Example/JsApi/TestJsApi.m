@@ -7,7 +7,7 @@
 //
 
 #import "TestJsApi.h"
-#import "HCWebViewJsBridge.h"
+#import "HCWKWebViewJsBridge.h"
 
 @interface TestJsApi () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 

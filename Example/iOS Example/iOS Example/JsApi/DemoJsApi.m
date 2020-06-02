@@ -7,7 +7,7 @@
 //
 
 #import "DemoJsApi.h"
-#import "HCWebViewJsBridge.h"
+#import "HCWKWebViewJsBridge.h"
 
 @implementation DemoJsApi
 

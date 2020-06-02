@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E34C7EA2235D46BE0096D99D /* testWithNoJsFile.html in Resources */ = {isa = PBXBuildFile; fileRef = E34C7EA1235D46BE0096D99D /* testWithNoJsFile.html */; };
 		E34C7EA5235D50E60096D99D /* HCWebViewJavaScript.m in Sources */ = {isa = PBXBuildFile; fileRef = E34C7EA4235D50E60096D99D /* HCWebViewJavaScript.m */; };
+		E3B10A06248684900022B1F2 /* hcJsBridge.min.js in Resources */ = {isa = PBXBuildFile; fileRef = E3B10A05248684900022B1F2 /* hcJsBridge.min.js */; };
 		E3E35AD2233E0BFB00075B23 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E35AD1233E0BFB00075B23 /* AppDelegate.m */; };
 		E3E35AD5233E0BFB00075B23 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E35AD4233E0BFB00075B23 /* ViewController.m */; };
 		E3E35AD8233E0BFB00075B23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E35AD6233E0BFB00075B23 /* Main.storyboard */; };
@@ -17,14 +18,11 @@
 		E3E35AE0233E0BFC00075B23 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E35ADF233E0BFC00075B23 /* main.m */; };
 		E3E35AEA233E0BFC00075B23 /* iOS_ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E35AE9233E0BFC00075B23 /* iOS_ExampleTests.m */; };
 		E3E35AF5233E0BFC00075B23 /* iOS_ExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E35AF4233E0BFC00075B23 /* iOS_ExampleUITests.m */; };
-		E3E35B07233E143400075B23 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E35B06233E143400075B23 /* DemoViewController.m */; };
 		E3E35B0A233E164200075B23 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E35B09233E164200075B23 /* WebKit.framework */; };
 		E3E35B1B233E173800075B23 /* HCWKWebViewJsBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E35B0D233E173800075B23 /* HCWKWebViewJsBridge.m */; };
 		E3E35B1C233E173800075B23 /* HCWebViewJsBridgeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E35B0E233E173800075B23 /* HCWebViewJsBridgeUtil.m */; };
 		E3E35B1D233E173800075B23 /* HCJsApiName.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E35B0F233E173800075B23 /* HCJsApiName.m */; };
-		E3E35B1E233E173800075B23 /* NSObject+HCJSContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E35B14233E173800075B23 /* NSObject+HCJSContext.m */; };
 		E3E35B1F233E173800075B23 /* HCCoreJSExportImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E35B17233E173800075B23 /* HCCoreJSExportImpl.m */; };
-		E3E35B20233E173800075B23 /* HCWebViewJsBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E35B18233E173800075B23 /* HCWebViewJsBridge.m */; };
 		E3E35B21233E173800075B23 /* HCJsApiMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E35B19233E173800075B23 /* HCJsApiMethod.m */; };
 		E3E35B24233E177D00075B23 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = E3E35B22233E177D00075B23 /* test.html */; };
 		E3E35B25233E177D00075B23 /* hcJsBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = E3E35B23233E177D00075B23 /* hcJsBridge.js */; };
@@ -55,6 +53,7 @@
 		E34C7EA1235D46BE0096D99D /* testWithNoJsFile.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = testWithNoJsFile.html; sourceTree = "<group>"; };
 		E34C7EA3235D50E60096D99D /* HCWebViewJavaScript.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HCWebViewJavaScript.h; sourceTree = "<group>"; };
 		E34C7EA4235D50E60096D99D /* HCWebViewJavaScript.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HCWebViewJavaScript.m; sourceTree = "<group>"; };
+		E3B10A05248684900022B1F2 /* hcJsBridge.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = hcJsBridge.min.js; sourceTree = "<group>"; };
 		E3E35ACD233E0BFB00075B23 /* iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3E35AD0233E0BFB00075B23 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E3E35AD1233E0BFB00075B23 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -71,22 +70,16 @@
 		E3E35AF0233E0BFC00075B23 /* iOS ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS ExampleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3E35AF4233E0BFC00075B23 /* iOS_ExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_ExampleUITests.m; sourceTree = "<group>"; };
 		E3E35AF6233E0BFC00075B23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E3E35B05233E143400075B23 /* DemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
-		E3E35B06233E143400075B23 /* DemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 		E3E35B09233E164200075B23 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		E3E35B0C233E173800075B23 /* NSObject+HCJSContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HCJSContext.h"; sourceTree = "<group>"; };
 		E3E35B0D233E173800075B23 /* HCWKWebViewJsBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCWKWebViewJsBridge.m; sourceTree = "<group>"; };
 		E3E35B0E233E173800075B23 /* HCWebViewJsBridgeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCWebViewJsBridgeUtil.m; sourceTree = "<group>"; };
 		E3E35B0F233E173800075B23 /* HCJsApiName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCJsApiName.m; sourceTree = "<group>"; };
 		E3E35B10233E173800075B23 /* HCJsApiMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCJsApiMethod.h; sourceTree = "<group>"; };
-		E3E35B11233E173800075B23 /* HCWebViewJsBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCWebViewJsBridge.h; sourceTree = "<group>"; };
 		E3E35B12233E173800075B23 /* HCCoreJSExportImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCoreJSExportImpl.h; sourceTree = "<group>"; };
 		E3E35B13233E173800075B23 /* HCWKWebViewJsBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCWKWebViewJsBridge.h; sourceTree = "<group>"; };
-		E3E35B14233E173800075B23 /* NSObject+HCJSContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HCJSContext.m"; sourceTree = "<group>"; };
 		E3E35B15233E173800075B23 /* HCCoreJSExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCoreJSExport.h; sourceTree = "<group>"; };
 		E3E35B16233E173800075B23 /* HCWebViewJsBridgeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCWebViewJsBridgeUtil.h; sourceTree = "<group>"; };
 		E3E35B17233E173800075B23 /* HCCoreJSExportImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCCoreJSExportImpl.m; sourceTree = "<group>"; };
-		E3E35B18233E173800075B23 /* HCWebViewJsBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCWebViewJsBridge.m; sourceTree = "<group>"; };
 		E3E35B19233E173800075B23 /* HCJsApiMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCJsApiMethod.m; sourceTree = "<group>"; };
 		E3E35B1A233E173800075B23 /* HCJsApiName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCJsApiName.h; sourceTree = "<group>"; };
 		E3E35B22233E177D00075B23 /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
@@ -125,6 +118,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E3B10A032486844B0022B1F2 /* H5 */ = {
+			isa = PBXGroup;
+			children = (
+				E3B10A05248684900022B1F2 /* hcJsBridge.min.js */,
+				E3E35B442340E7A300075B23 /* vue.js */,
+				E3E35B492340EC2000075B23 /* vconsole.min.js */,
+				E3E35B23233E177D00075B23 /* hcJsBridge.js */,
+				E3E35B22233E177D00075B23 /* test.html */,
+				E34C7EA1235D46BE0096D99D /* testWithNoJsFile.html */,
+			);
+			path = H5;
+			sourceTree = "<group>";
+		};
+		E3B10A04248684670022B1F2 /* JsApi */ = {
+			isa = PBXGroup;
+			children = (
+				E3E35B26233E17C700075B23 /* DemoJsApi.h */,
+				E3E35B27233E17C700075B23 /* DemoJsApi.m */,
+				E3E35B472340E7C900075B23 /* TestJsApi.h */,
+				E3E35B462340E7C900075B23 /* TestJsApi.m */,
+			);
+			path = JsApi;
+			sourceTree = "<group>";
+		};
 		E3E35AC4233E0BFB00075B23 = {
 			isa = PBXGroup;
 			children = (
@@ -154,22 +171,13 @@
 				E3E35AD1233E0BFB00075B23 /* AppDelegate.m */,
 				E3E35AD3233E0BFB00075B23 /* ViewController.h */,
 				E3E35AD4233E0BFB00075B23 /* ViewController.m */,
-				E3E35B05233E143400075B23 /* DemoViewController.h */,
-				E3E35B06233E143400075B23 /* DemoViewController.m */,
-				E3E35B26233E17C700075B23 /* DemoJsApi.h */,
-				E3E35B27233E17C700075B23 /* DemoJsApi.m */,
-				E3E35B472340E7C900075B23 /* TestJsApi.h */,
-				E3E35B462340E7C900075B23 /* TestJsApi.m */,
+				E3B10A04248684670022B1F2 /* JsApi */,
 				E3E35AD6233E0BFB00075B23 /* Main.storyboard */,
 				E3E35AD9233E0BFC00075B23 /* Assets.xcassets */,
 				E3E35ADB233E0BFC00075B23 /* LaunchScreen.storyboard */,
 				E3E35ADE233E0BFC00075B23 /* Info.plist */,
 				E3E35ADF233E0BFC00075B23 /* main.m */,
-				E3E35B442340E7A300075B23 /* vue.js */,
-				E3E35B492340EC2000075B23 /* vconsole.min.js */,
-				E3E35B23233E177D00075B23 /* hcJsBridge.js */,
-				E3E35B22233E177D00075B23 /* test.html */,
-				E34C7EA1235D46BE0096D99D /* testWithNoJsFile.html */,
+				E3B10A032486844B0022B1F2 /* H5 */,
 			);
 			path = "iOS Example";
 			sourceTree = "<group>";
@@ -203,12 +211,8 @@
 		E3E35B0B233E173800075B23 /* HCWebViewJsBridge */ = {
 			isa = PBXGroup;
 			children = (
-				E3E35B11233E173800075B23 /* HCWebViewJsBridge.h */,
-				E3E35B18233E173800075B23 /* HCWebViewJsBridge.m */,
 				E3E35B13233E173800075B23 /* HCWKWebViewJsBridge.h */,
 				E3E35B0D233E173800075B23 /* HCWKWebViewJsBridge.m */,
-				E3E35B0C233E173800075B23 /* NSObject+HCJSContext.h */,
-				E3E35B14233E173800075B23 /* NSObject+HCJSContext.m */,
 				E3E35B16233E173800075B23 /* HCWebViewJsBridgeUtil.h */,
 				E3E35B0E233E173800075B23 /* HCWebViewJsBridgeUtil.m */,
 				E3E35B1A233E173800075B23 /* HCJsApiName.h */,
@@ -335,6 +339,7 @@
 				E3E35AD8233E0BFB00075B23 /* Main.storyboard in Resources */,
 				E3E35B4A2340EC2100075B23 /* vconsole.min.js in Resources */,
 				E34C7EA2235D46BE0096D99D /* testWithNoJsFile.html in Resources */,
+				E3B10A06248684900022B1F2 /* hcJsBridge.min.js in Resources */,
 				E3E35B452340E7A300075B23 /* vue.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,9 +367,7 @@
 			files = (
 				E3E35B482340E7C900075B23 /* TestJsApi.m in Sources */,
 				E3E35B1C233E173800075B23 /* HCWebViewJsBridgeUtil.m in Sources */,
-				E3E35B1E233E173800075B23 /* NSObject+HCJSContext.m in Sources */,
 				E34C7EA5235D50E60096D99D /* HCWebViewJavaScript.m in Sources */,
-				E3E35B20233E173800075B23 /* HCWebViewJsBridge.m in Sources */,
 				E3E35AD5233E0BFB00075B23 /* ViewController.m in Sources */,
 				E3E35B1D233E173800075B23 /* HCJsApiName.m in Sources */,
 				E3E35B1F233E173800075B23 /* HCCoreJSExportImpl.m in Sources */,
@@ -373,7 +376,6 @@
 				E3E35AE0233E0BFC00075B23 /* main.m in Sources */,
 				E3E35B21233E173800075B23 /* HCJsApiMethod.m in Sources */,
 				E3E35AD2233E0BFB00075B23 /* AppDelegate.m in Sources */,
-				E3E35B07233E143400075B23 /* DemoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

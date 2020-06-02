@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -29,19 +27,6 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBW-uG-8Sp">
-                                <rect key="frame" x="219" y="54" width="185" height="30"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="185" id="pz2-lB-SXG"/>
-                                </constraints>
-                                <state key="normal" title="See UIWebView Example">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="KgC-m4-IGx" kind="presentation" id="gWu-pU-5Dj"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCK-78-xla">
                                 <rect key="frame" x="30" y="822" width="50" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -105,7 +90,6 @@
                         <constraints>
                             <constraint firstItem="Ogf-Qu-SFV" firstAttribute="bottom" secondItem="PJs-6d-W4c" secondAttribute="bottom" id="2eu-8C-83s"/>
                             <constraint firstItem="djI-jt-X4d" firstAttribute="top" secondItem="bCK-78-xla" secondAttribute="bottom" constant="10" id="3fV-yK-LU3"/>
-                            <constraint firstAttribute="trailing" secondItem="QBW-uG-8Sp" secondAttribute="trailing" constant="10" id="AV8-ap-hjR"/>
                             <constraint firstItem="3wf-wJ-pGq" firstAttribute="top" secondItem="Eh7-oj-1sR" secondAttribute="bottom" id="Fe3-XC-Vpk"/>
                             <constraint firstItem="djI-jt-X4d" firstAttribute="top" secondItem="3wf-wJ-pGq" secondAttribute="bottom" id="Fe6-dw-YQp"/>
                             <constraint firstItem="ibG-pa-iHW" firstAttribute="bottom" secondItem="Ogf-Qu-SFV" secondAttribute="bottom" id="QNH-V3-Uau"/>
@@ -118,7 +102,6 @@
                             <constraint firstItem="ibG-pa-iHW" firstAttribute="leading" secondItem="Ogf-Qu-SFV" secondAttribute="trailing" constant="10" id="gYW-jn-Zap"/>
                             <constraint firstItem="PJs-6d-W4c" firstAttribute="leading" secondItem="bCK-78-xla" secondAttribute="trailing" constant="10" id="obi-bJ-kdB"/>
                             <constraint firstItem="3wf-wJ-pGq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rwv-yD-ZK2"/>
-                            <constraint firstItem="QBW-uG-8Sp" firstAttribute="top" secondItem="Eh7-oj-1sR" secondAttribute="bottom" constant="10" id="weg-uf-eE1"/>
                         </constraints>
                     </view>
                     <connections>
